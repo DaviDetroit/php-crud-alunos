@@ -1,10 +1,14 @@
 <?php
-// Conexão com o MySQL usando variáveis de ambiente do Railway
-$host = $_ENV['DB_HOST'] ?? '127.0.0.1';
-$port = $_ENV['DB_PORT'] ?? '3306';
-$db   = $_ENV['DB_NAME'] ?? '';
-$user = $_ENV['DB_USER'] ?? '';
-$pass = $_ENV['DB_PASSWORD'] ?? '';
+$host = $_ENV['DB_HOST'] ?? null;
+$port = $_ENV['DB_PORT'] ?? null;
+$db   = $_ENV['DB_NAME'] ?? null;
+$user = $_ENV['DB_USER'] ?? null;
+$pass = $_ENV['DB_PASSWORD'] ?? null;
+
+// Validação básica
+if (!$host || !$port || !$db || !$user || !$pass) {
+    die("Erro: variáveis de ambiente do banco não estão definidas!");
+}
 
 try {
     $pdo = new PDO(
