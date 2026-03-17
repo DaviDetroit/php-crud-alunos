@@ -1,6 +1,6 @@
 <?php
 // Conexão com o MySQL usando variáveis de ambiente do Railway
-$host = $_ENV['DB_HOST'] ?? 'localhost';
+$host = $_ENV['DB_HOST'] ?? '127.0.0.1';
 $port = $_ENV['DB_PORT'] ?? '3306';
 $db   = $_ENV['DB_NAME'] ?? '';
 $user = $_ENV['DB_USER'] ?? '';
