@@ -99,10 +99,8 @@ Estrutura do Projeto
 ├── 📄 index.php                    # Página principal de busca e exibição
 ├── 📄 config.php                    # Configuração da conexão com banco
 ├── 📄 README.md                      # Documentação do projeto
-│
-└── 📁 docs/                           # (opcional) Imagens e documentação
-    ├── demonstracao.gif
-    └── demonstracao2.png
+├── 📄 buscarcpf.php
+
 
 Busca por CPF
 CPF: 123.456.789-00
