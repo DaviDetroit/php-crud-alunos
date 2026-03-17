@@ -22,7 +22,7 @@ try {
     // Configura o PDO para lançar exceções em caso de erro
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Conexão com o banco de dados realizada com sucesso!";
+    
 } catch (PDOException $e) {
     // Mensagem de erro caso a conexão falhe
     die("Erro de conexão: " . $e->getMessage());
