@@ -1,12 +1,10 @@
 <?php
-// Lendo variáveis de ambiente da forma correta para ambientes de nuvem como Railway
 $host = getenv('DB_HOST');
 $port = getenv('DB_PORT');
 $db   = getenv('DB_NAME');
 $user = getenv('DB_USER');
 $pass = getenv('DB_PASSWORD');
 
-// Validação básica
 if (!$host || !$port || !$db || !$user || !$pass) {
     die("Erro: variáveis de ambiente do banco não estão definidas!");
 }
