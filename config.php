@@ -1,9 +1,10 @@
 <?php
-$host = $_ENV['DB_HOST'] ?? null;
-$port = $_ENV['DB_PORT'] ?? null;
-$db   = $_ENV['DB_NAME'] ?? null;
-$user = $_ENV['DB_USER'] ?? null;
-$pass = $_ENV['DB_PASSWORD'] ?? null;
+// Lendo variáveis de ambiente da forma correta para ambientes de nuvem como Railway
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASSWORD');
 
 // Validação básica
 if (!$host || !$port || !$db || !$user || !$pass) {
@@ -11,12 +12,18 @@ if (!$host || !$port || !$db || !$user || !$pass) {
 }
 
 try {
+    // Criando conexão PDO
     $pdo = new PDO(
         "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4",
         $user,
         $pass
     );
+    
+    // Configura o PDO para lançar exceções em caso de erro
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo "Conexão com o banco de dados realizada com sucesso!";
 } catch (PDOException $e) {
+    // Mensagem de erro caso a conexão falhe
     die("Erro de conexão: " . $e->getMessage());
 }
