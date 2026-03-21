@@ -1,4 +1,6 @@
-:{$PORT}
-
-root * /app
-php_server
+:{$PORT} {
+    root * /app
+    encode gzip
+    php_fastcgi localhost:9000
+    file_server
+}
