@@ -2,8 +2,5 @@
     "require": {
         "php": "^8.3",
         "ext-pdo_mysql": "*"
-    },
-    "scripts": {
-        "start": "frankenphp run --listen :9000"
     }
 }
